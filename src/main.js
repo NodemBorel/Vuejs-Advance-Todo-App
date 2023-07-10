@@ -9,15 +9,18 @@ import App from './App.vue'
 const store = createStore({
     state(){
         return{
-            counter:10,
+            counter:0,
+            history:[0]
         }
     },
     mutations: {
         addToCounter(state, payload){
             state.counter = state.counter + payload
+            state.history.push(state.counter)
         },
         subtractFromCounter(state, payload){
             state.counter = state.counter - payload
+            state.history.push(state.counter)
         }
     },
     actions: {
